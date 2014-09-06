@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{charter}
+\usepackage{graphicx}
+\author{Cavendish McKay}
+\title{Citrine technical challenge}
+
+
+
+\begin{document}
+\maketitle
+
+\section{Materials and data mining challenge}
+\begin{quote} \sl
+Utilize the data available on Materials Project via their API (materialsproject.org) to teach us something interesting about materials properties or behavior. Bonus points for incorporating data sources beyond MP.
+\end{quote}
+
+I was unfamiliar with the Materials Project prior to starting this process, and so I spent a fair amount of time just becoming acquainted with the project and its data before I tried to formulate and answer a specific question from the data.  Here are a couple of observations about the project and data as a whole:
+
+\begin{enumerate}
+\item My background in working with materials is limited, and falls almost entirely within a mechanical engineering context. Consequently, the phrase ``materials properties'' tends to mean mechanical properties to me, and I expected to see quantities like the Young's modulus, the Poisson ratio, and the hardness listed. After I figured out that the majority of the data comes from first principles calculations, rather than measurements, it made a little more sense why elastic coefficients haven't (yet) been included, since they depend on derivatives of energy instead of directly on energy. I also noticed that the MP folks have plans to include elastic properties at a later time.
+
+\item I was also a little surprised that the materials listed are all inorganic crystaline solids (in particular, no polymers are included). Again, after thinking about it for a little while, it makes sense for two reasons: first, since the data comes from calculation, the project gets the greatest effect by starting with the most tractable problems, and second, the properties being reported indicate a focus on physics rather than either mechanical engineering or chemistry, and solid state physics has traditionaly focused on inorganic crystaline solids.
+
+\item The last surprise I will note here (and one which I will use below) is that there were so many different entries for individual materials. There are, of course, a lot of materials for which there is only one entry, but there are others which have many. Two examples: $\mathrm{TiO_2}$ has 22 different entries, and $\mathrm{Hf_2N_2O}$ has 48(!) entries. Some of these account for different crystal configurations, but others are simply different arrangements of the atoms with the same crystal structure. 
+\end{enumerate}
+
+So, on to my question. The periodic table is the foundation of modern chemistry. Elements are grouped according to the number of electrons they have available to form bonds. As a result, elements within a particular group (column) will have similar chemistry.  This leads me to ask: how well does this work in finding new materials?  What happens if one replaces, for example, the titanium atoms in  $\mathrm{TiO_2}$ with zirconium, which is the next element down in the table? Is there a systematic shift that can be easily understood?
+
+To answer this question, I performed two separate explorations. First, I tried to compare entries for compounds that had the largest number of entries to look for variations in both the median values and variances of density, energy of formation, and band gap.  Second, I compared compounds for which there was only a single entry.
+
+\section{Scientific computing challenge}
+\begin{quote} \sl
+Implement an optimization scheme of your choice that packs regular tetrahedra as densely as possible. Please submit it to us in such a way that we can test its performance out-of-the-box (i.e., it should be well-documented and intuitive).
+\end{quote}
+
+\section{Big-picture thinking}
+\begin{quote} \sl
+Why does it take 10-20 years to commercialize new advanced materials? Consider the entire R\&D pipeline from the moment a curious scientist first asks, ``How can we make glass tougher?'' to the time when Corning's Gorilla Glass is protecting the screens of millions of iPhones. How can we use large-scale data and computation to dramatically reduce this timescale? Where is the low-hanging fruit? Who are the major stakeholders, and how do we work with them creatively?
+\end{quote}
+
+The traditional picture of how research and development operates goes something like this:\vspace{0.5cm}
+\begin{enumerate}
+\item A researcher has a question
+\item Months or years of educated guesses and trial and error (``research'')
+\item The researcher arrives at an understanding of the mechanism in question
+\item More months or years of educated guesses and trial and error (again, ``research'')
+\item The researcher develops an implementation of the idea
+\item Months or years of the idea trickling out to industry
+\item Months or years spent attempting to make the implementation practical (either in terms of scale, or cost, or fitness for purpose)
+\item The idea is incorporated into a product
+\item (Marketing)
+\item (hopefully) Profit!
+\end{enumerate}c
+\vspace{0.5cm}
+
+Setting aside (for the moment) the question of whether or not this paints an accurate picture of R\&D, there are still steps along the way that usually take more time than they could under optimal conditions.
+
+\section{Hustling}
+\begin{quote} \sl
+While we at Citrine are scientists, we are also a business. We have a very different mindset from academia. To that end, describe how you would most quickly commercialize your dissertation research, or some other project you've worked on. What is the product? Who would the customers be? Why would they buy? How would you convince them to part with their hard-earned money?
+\end{quote}
+
+Unfortunately, the project that I've worked on that lends itself most naturally to commercialization was something I did as a consulting project, and is covered by NDA, so I can't discuss details. What I can say about it is that it seems very similar in spirit to your stated goal of using software to streamline early stage product development. In my case, I wasn't looking at material synthesis, but rather performing finite element simulations of proposed product designs.
+
+The next most commercializable project I've worked on was a senior capstone project for one of my students. This particular student was on the crew team at our school, and wanted to connect his capstone work with his passion for rowing. After exploring a lot of different possibilities, we settled on using accelerometers to analyze the effectiveness of rowing strokes. I wrote an iOS app that we installed on a set of iPod touches, which we used as our data gathering platform. Ben (the student) talked his teammates into wearing the iPods during practice, and did the data analysis.
+
+One could turn this into a product in a couple of different ways. The simplest would be to rely on devices the rowers already own for data collection (via iOS and android apps offered at low or zero cost) and then provide the analysis on a subscription basis as a SaaS app.  The second route would be to make a purpose-built device for data collection (making it both waterproof and wearable, neither of which is true of most smart phones) or alternatively partnering with a company like Jawbone. Then the device itself could be sold at a profit, in addition to the ongoing SaaS charges.
+
+There are two natural customer segments (individual rowers and coaches) so having separate offerings for these two segments makes sense.  Coaches would naturally want access to data from their whole team, and tools for managing seat assignments and the like in addition to being able to drill down into the performance data for individual rowers. 
+
+The central marketing message would be: ``We can use data to make your stroke more efficient and your boat faster,'' but that would obviously need to be backed up with some solid evidence and testimonials from high-performing rowers and coaches.  The ideal plan would be to have a couple of high profile teams beta test the system (which would be useful to gather training data for the software that's performing the stroke analysis), and then use them as the tip of the marketing spear.
+
+\end{document}
